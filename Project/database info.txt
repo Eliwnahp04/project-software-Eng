@@ -1,0 +1,64 @@
+
+user 
+	public user
+	employee
+	sys admin
+	
+		name  
+		email
+		number
+		cusID  pk
+		empId
+		address  
+		privaleges
+		paymentDetails 
+
+addToCart 
+	public user 
+		cusID  fk
+		itemId/s
+		cartId  pk
+			
+
+purchase 
+	public user 
+	employee
+		
+		cusID  fk
+		empID  fk
+		purchaseID  pk
+		cartID fk 
+		paymentDetails 
+
+confirm purchase 
+		employee
+			purchaseId  pk 
+			empId fk
+			confirmed/denied 
+			pickUpTime
+
+return
+	employee 
+	public user
+		
+		returnID  pk
+		cusID     fk
+		empID	  fk	
+		purchaseID fk
+		paymentDetails
+
+		
+
+create a user object
+create cart object which uses the user object 
+
+purchase class which uses user and cart object 
+	take the payment info from user objext or add now to the user object 
+
+to confirm purchase user with employee priv must oress button on website which changes confirmation bool to positive and then sets a string with the pickup time 
+
+to return an item a user with a cusID must fill in form with purchase id then employee confirms return bool and sets string for return date 
+
+cart object uses an arraylist for itemId's 
+customer can onlt have 1 shopping cart 
+cusId is foreign key with dependancy so a shopping cart id cant exist without a customer id 
